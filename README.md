@@ -3,7 +3,7 @@
   Official WePay NodeJS SDK [wepay](https://www.wepay.com).
 
 ```js
-load in your modules
+// load in your modules
 var wepay = require('./wepay').WEPAY;
 
 // local variables
