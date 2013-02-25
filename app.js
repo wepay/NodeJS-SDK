@@ -10,14 +10,19 @@ var wepay_settings = {
 
 var wp = new wepay(wepay_settings);
 wp.use_staging(); // use staging environment (payments are not charged)
-wp.call('/checkout/create',
-	{
-		'account_id': 1513122,
-		'short_description': 'Selling 42 Pens',
-		'type': 'GOODS',
-		'amount': 50
-	},
-	function(response) {
-		console.log('%s', response);
-	}
-);
+
+try {
+	wp.call('/checkout/create',
+		{
+			'account_id': 1513122,
+			'short_description': 'Selling 42 Pens',
+			'type': 'GOODS',
+			'amount': 50
+		},
+		function(response) {
+			console.log('%s', response);
+		}
+	);
+} catch (error) {
+	console.log(error);
+}

@@ -13,8 +13,7 @@ exports.WEPAY = function(settings)
 			port    : 443,
 			method  : 'POST',
 			headers : {
-				'Content-Length': 0,
-				'Content-Type': 'application/x-www-form-urlencoded',
+				'Content-Type': 'application/json',
 				'User-Agent': 'WePay NodeJS SDK',
 				'Authorization': 'Bearer ' + _access_token,
 			},
@@ -23,7 +22,7 @@ exports.WEPAY = function(settings)
 	var get_domain = function()
 	{
 		if (_in_production) {
-			host = 'https://www.wepayapi.com';
+			host = 'www.wepayapi.com';
 		} else {
 			host = 'stage.wepayapi.com';
 		}
@@ -55,8 +54,11 @@ exports.WEPAY = function(settings)
 		
 		call: function(url, params, callback) {
 			options.path = '/v2' + url;
-			var _params = set_params(params),
+			var _params = JSON.stringify(params),
 				_arguments = arguments;
+			
+			// adjust the content length
+			options.headers['Content-Length'] = _params.length;
 			
 			var request = http.request(options, function(response) {
 				response.on('data', function(chunk) {
