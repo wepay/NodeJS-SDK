@@ -1,7 +1,6 @@
-var http = require('https'),
-	querystring = require('querystring');
+var http = require('https');
 
-exports.version = '0.0.1';
+exports.version = '0.0.3';
 
 exports.WEPAY = function(settings)
 {
@@ -28,13 +27,6 @@ exports.WEPAY = function(settings)
 		}
 		options.host = host;
 		return host;
-	}
-	
-	var set_params = function(params)
-	{
-		var _params = querystring.stringify(params);
-		options.headers['Content-Length'] = _params.length;
-		return _params;
 	}
 	
 	return {
