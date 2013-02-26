@@ -1,4 +1,4 @@
-![wepay logo](https://static.wepay.com/img/new/logo.png)
+![wepay logo](https://www.wepay.com/files/logo_regular.png)
 
   Official WePay NodeJS SDK [wepay](https://www.wepay.com).
 
