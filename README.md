@@ -36,9 +36,8 @@ wp.call('/checkout/create',
  Global installation:
     $ npm install -g wepay
 
-```js
-Note: When installing with global settings, you'll need to set your NODE_PATH environment variable.
-```
+ Note:
+    When installing with global settings, you'll need to set your NODE_PATH environment variable.
 
  Install dependencies:
 
