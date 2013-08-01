@@ -5,8 +5,7 @@
 ```js
 // load in your modules
 var wepay = require('./wepay').WEPAY;                        // if wepay.js is in the same directory as your script
-// var wepay = require('./node_modules/wepay/wepay').WEPAY;  // if wepay.js is installed locally
-// var wepay = require('wepay').WEPAY;                       // if wepay.js is installed globally
+// var wepay = require('wepay').WEPAY;                       // if wepay.js is installed globally/locally
 
 // local variables
 var wepay_settings = {
