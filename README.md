@@ -47,6 +47,18 @@ wp.call('/checkout/create',
 
     $ npm install
 
+## Endpoints
+
+  You can specify in the SDK which endpoint (stage or prod) you wish to use. See, [endpoints](https://stage.wepay.com/developer/reference/endpoints).
+
+  To use staging endpoint:
+    
+    wp.use_staging();
+
+  To use production endpoint:
+    
+    wp.use_production();
+
 ## More Information
 
   * [WePay API](https://www.wepay.com/developer) for documentation
