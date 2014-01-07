@@ -12,6 +12,7 @@ var wepay_settings = {
 	'client_id'     : '127580',
 	'client_secret' : '6180c3de46',
 	'access_token'  : 'a9ff4ce866893119097e0c29ee1f7886b3891e76b4599ab589c232b4f2f6ddcd', // used for oAuth2
+	// 'api_version': 'API_VERSION'
 }
 
 var wp = new wepay(wepay_settings);
