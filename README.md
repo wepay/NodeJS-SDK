@@ -20,9 +20,10 @@ wp.use_staging(); // use staging environment (payments are not charged)
 wp.call('/checkout/create',
 	{
 		'account_id': 1723052,
+		'amount': 50,
+        'currency': 'USD',
 		'short_description': 'Selling 42 Pens',
-		'type': 'GOODS',
-		'amount': 50
+		'type': 'goods'
 	},
 	function(response) {
 		console.log('%s', response);
