@@ -4,8 +4,8 @@
 
 ```js
 // load in your modules
-var wepay = require('wepay').WEPAY;                       // if wepay.js is installed globally/locally
-// var wepay = require('./wepay').WEPAY;                        // if wepay.js is in the same directory as your script
+var wepay = require('wepay').WEPAY;       // if wepay.js is installed globally/locally
+// var wepay = require('./wepay').WEPAY;  // if wepay.js is in the same directory as your script
 
 // local variables
 var wepay_settings = {
