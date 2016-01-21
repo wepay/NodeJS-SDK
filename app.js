@@ -20,7 +20,7 @@ try {
             'type': 'goods'
         },
         function(response) {
-            console.log(String(response));
+            console.log(response);
         }
     );
 } catch (error) {
