@@ -61,6 +61,29 @@ wp.call('/checkout/create',
     
     wp.use_production();
 
+## Risk Headers
+
+  You can supply WePay with risk-related information on every API call by passing the WePay-Risk-Token and Client-IP values to the `call` function:
+
+  ```
+	wp.call('/checkout/create',
+		{
+			'account_id': 1723052,
+			'amount': 50,
+	        'currency': 'USD',
+			'short_description': 'Selling 42 Pens',
+			'type': 'goods'
+		},
+		function(response) {
+			console.log('%s', response);
+		},
+		'123e4567-e89b-12d3-a456-426655440000',
+		'100.166.99.123'
+	);
+  ```
+
+  Detailed information regarding the Risk Headers can be found at the [WePay API Documentation]('https://developer.wepay.com/reference/risk_headers')
+
 ## More Information
 
   * [WePay API](https://www.wepay.com/developer) for documentation
