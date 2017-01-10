@@ -82,7 +82,7 @@ wp.call('/checkout/create',
 );
 ```
 
-  Detailed information regarding the Risk Headers can be found at the [WePay API Documentation](https://developer.wepay.com/reference/risk_headers)
+Detailed information regarding the Risk Headers can be found at the [WePay API Documentation](https://developer.wepay.com/reference/risk_headers).
 
 ## More Information
 
