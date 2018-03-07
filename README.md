@@ -66,11 +66,15 @@ You can specify in the SDK which endpoint (stage or prod) you wish to use. See, 
 
 To use staging endpoint:
 
+```js
 client.use_staging();
+```
 
 To use production endpoint:
 
+```js
 client.use_production();
+```
 
 ## Risk Headers
 
