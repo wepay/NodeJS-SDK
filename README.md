@@ -1,84 +1,83 @@
 ![wepay logo](http://go.wepay.com/frontend/images/wepay-logo.svg)
 
-  Official WePay NodeJS SDK [wepay](https://www.wepay.com).
+Official WePay NodeJS SDK [wepay](https://www.wepay.com).
 
 ```js
 // load in your modules
-var wepay = require('wepay').WEPAY;       // if wepay.js is installed globally/locally
-// var wepay = require('./wepay').WEPAY;  // if wepay.js is in the same directory as your script
+const { WepayClient } = require('wepay');
 
-// local variables
-var wepay_settings = {
-	'client_id'     : '127580',
-	'client_secret' : '6180c3de46',
-	'access_token'  : 'a9ff4ce866893119097e0c29ee1f7886b3891e76b4599ab589c232b4f2f6ddcd', // used for oAuth2
-	// 'api_version': 'API_VERSION'
-}
+const client = new WepayClient(process.env.WEPAY_ACCESS_TOKEN);
 
-var wp = new wepay(wepay_settings);
-wp.use_staging(); // use staging environment (payments are not charged)
-wp.call('/checkout/create',
-	{
-		'account_id': 1723052,
-		'amount': 50,
-        'currency': 'USD',
-		'short_description': 'Selling 42 Pens',
-		'type': 'goods'
-	},
-	function(response) {
-		console.log('%s', response);
-	}
-);
+client.use_staging();
+
+client
+  .call('/checkout/create', {
+    account_id: 1723052,
+    amount: 50,
+    currency: 'USD',
+    short_description: 'Selling 42 Pens',
+    type: 'goods',
+  })
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  });
 ```
 
 ## Installation
 
- Local installation:
+Local installation:
 
     $ npm install wepay
 
- Global installation:
+Global installation:
 
     $ npm install -g wepay
 
- Note:
+Note:
 
     When installing with global settings, you'll need to set your NODE_PATH environment variable.
 
- Install dependencies:
+Install dependencies:
 
     $ npm install
 
 ## Endpoints
 
-  You can specify in the SDK which endpoint (stage or prod) you wish to use. See, [endpoints](https://stage.wepay.com/developer/reference/endpoints).
+You can specify in the SDK which endpoint (stage or prod) you wish to use. See, [endpoints](https://stage.wepay.com/developer/reference/endpoints).
 
-  To use staging endpoint:
-    
-    wp.use_staging();
+To use staging endpoint:
 
-  To use production endpoint:
-    
-    wp.use_production();
+client.use_staging();
+
+To use production endpoint:
+
+client.use_production();
 
 ## Risk Headers
 
-  You can supply WePay with risk-related information on every API call by passing the WePay-Risk-Token and Client-IP values to the `call` function:
+You can supply WePay with risk-related information on every API call by passing the WePay-Risk-Token and Client-IP values to the `call` function:
 
-```
-wp.call('/checkout/create',
-	{
-		'account_id': 1723052,
-		'amount': 50,
-        'currency': 'USD',
-		'short_description': 'Selling 42 Pens',
-		'type': 'goods'
-	},
-	function(response) {
-		console.log('%s', response);
-	},
-	'123e4567-e89b-12d3-a456-426655440000',
-	'100.166.99.123'
+```js
+clientwp.call(
+  '/checkout/create',
+  {
+    account_id: 1723052,
+    amount: 50,
+    currency: 'USD',
+    short_description: 'Selling 42 Pens',
+    type: 'goods',
+  },
+  '123e4567-e89b-12d3-a456-426655440000',
+	'100.166.99.123')
+	.then(response => {
+    console.log('%s', response);
+	})
+	.catch(error => {
+		console.log(error);
+	});
 );
 ```
 
@@ -86,10 +85,10 @@ Detailed information regarding the Risk Headers can be found at the [WePay API D
 
 ## More Information
 
-  * [WePay API](https://www.wepay.com/developer) for documentation
-  * [API Support](https://support.wepay.com) for API questions
+* [WePay API](https://www.wepay.com/developer) for documentation
+* [API Support](https://support.wepay.com) for API questions
 
-## License 
+## License
 
 (The MIT License)
 
