@@ -1,2 +1,3 @@
 // wepay.js
-module.exports = require('./lib/wepay');
+exports.version = '1.0.0';
+exports.WepayClient = require('./lib/wepayClient');
