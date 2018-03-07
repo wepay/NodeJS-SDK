@@ -24,6 +24,22 @@ client
   .catch(error => {
     console.log(error);
   });
+
+// If you use Node.js v7.4 or above you can leverage async/await
+
+try {
+  const response = await client.call('/checkout/create', {
+    account_id: 1723052,
+    amount: 50,
+    currency: 'USD',
+    short_description: 'Selling 42 Pens',
+    type: 'goods',
+  });
+
+  console.log(response);
+} catch(error) {
+  console.log(error);
+}
 ```
 
 ## Installation
@@ -61,23 +77,45 @@ client.use_production();
 You can supply WePay with risk-related information on every API call by passing the WePay-Risk-Token and Client-IP values to the `call` function:
 
 ```js
-clientwp.call(
-  '/checkout/create',
-  {
-    account_id: 1723052,
-    amount: 50,
-    currency: 'USD',
-    short_description: 'Selling 42 Pens',
-    type: 'goods',
-  },
-  '123e4567-e89b-12d3-a456-426655440000',
-	'100.166.99.123')
+client
+  .call(
+    '/checkout/create',
+    {
+      account_id: 1723052,
+      amount: 50,
+      currency: 'USD',
+      short_description: 'Selling 42 Pens',
+      type: 'goods',
+    },
+    '123e4567-e89b-12d3-a456-426655440000',
+    '100.166.99.123'
+  )
 	.then(response => {
     console.log('%s', response);
 	})
 	.catch(error => {
 		console.log(error);
-	});
+  });
+
+// Or with async/await
+try {
+  const response = await client.call(
+    '/checkout/create',
+    {
+      account_id: 1723052,
+      amount: 50,
+      currency: 'USD',
+      short_description: 'Selling 42 Pens',
+      type: 'goods',
+    },
+    '123e4567-e89b-12d3-a456-426655440000',
+    '100.166.99.123'
+  );
+
+  console.log(response);
+} catch(error) {
+  console.log(error);
+}
 );
 ```
 
