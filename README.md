@@ -84,6 +84,8 @@ wp.call('/checkout/create',
 
 Detailed information regarding the Risk Headers can be found at the [WePay API Documentation](https://developer.wepay.com/reference/risk_headers).
 
+## Node version supported
+This SDK is compatible with Node version up to 10.0.0. Please contact API Support if you have any problem.
 ## More Information
 
   * [WePay API](https://www.wepay.com/developer) for documentation
